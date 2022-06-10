@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block css_files %}{% endblock css_files %}
+    <link rel="icon" href="{% static 'img/2.jpg' %}" type="image/x-icon" />
+    <title>{% block page_title %}{% endblock page_title %}</title>
+</head>
+<body>
+    {% include 'partials/navbar.html' %}
+    <div class="conteiner-fluid my-5">
+        <div class="row justify-content-end">
+            <div class="col-3">
+                {% include 'partials/kategori.html' %}
+            </div>
+            <div class="col-5">
+                {% block content %}{% endblock content %}
+            </div>
+            <div class="col-3 mx-5">
+                {% include 'partials/sidebar.html' %}
+            </div>
+        </div>
+        
+    </div>
+    
+    <script src="{% static 'js/style.js' %}"></script>
+</body>
+</html>

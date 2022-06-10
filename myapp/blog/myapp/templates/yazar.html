@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block page_title %}{{ yazar.username }}{% endblock page_title %}
+
+
+{% block css_files %}
+
+<link rel="stylesheet" href="{% static 'css/deneme.css' %}">
+
+{% endblock css_files %}
+{% block content %}
+    <div class="conteiner-fluid">
+        <div class="row justify-content-center">
+            <div class="col">
+                <img style="width: 200px;" src="{{ yazar.image.url }}" alt="">
+                <br><br>
+                Yazar: {{yazar.username}}
+                {{ yazar.first_name }}
+                {{ yazar.last_name }}
+                <br><br>
+                <p class="text h2">Yazılar</p>
+                {% for yazi in yazilar %}
+                
+                    {{ yazi.title }}
+                
+                
+                
+                
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+
+
+
+{% endblock content %}

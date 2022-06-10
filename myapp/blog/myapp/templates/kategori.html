@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block page_title %}İndex{% endblock page_title %}
+
+
+
+{% block content %}
+{% for yazi in yazilar %}
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{{ yazi.image.url }}" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ yazi.title }}</h5>
+          <p class="card-text">{{ yazi.aciklama|safe|truncatechars_html:50 }}</p>
+          <p class="card-text"><a href="{% url 'yazar' id=yazi.yazar.id %}">{{ yazi.yazar.username }}</a></p>
+          <p class="card-text align-content-center"><small class="text-muted">{{ yazi.olusturma }}</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+{% endblock content %}

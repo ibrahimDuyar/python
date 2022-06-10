@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block page_title %}Yorum Duzenle{% endblock page_title %}
+
+{% block content %}
+
+<form action="" method='POST' enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {{ form.media }}
+
+    {{ form|crispy }}
+
+    <input class="btn btn-danger my-3" type="submit" value = "BASSS" name="" id="">
+</form>
+
+
+
+
+{% endblock content %}

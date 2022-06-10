@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block page_title %}Yazilarim{% endblock page_title %}
+{% block css_files %}
+
+<link rel="stylesheet" href="{% static 'deneme.css' %}">
+
+{% endblock css_files %}
+
+{% block content %}
+
+<table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">title</th>
+        <th scope="col">Description</th>
+        <th scope="col">Tarih</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for yazi in yazilar %}
+      <tr>
+        <th scope="row">{{ yazi.id }}</th>
+        <td>{{ yazi.title }}</td>
+        <td>{{ yazi.aciklama|safe|truncatechars_html:20 }}</td>
+        <td>{{ yazi.olusturma }}</td>
+      </tr>
+      {% empty %}
+
+      <p class="text">Henüz bir yazınızı bulunmamaktadır.</p>
+
+     {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock content %}
